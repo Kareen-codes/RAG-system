@@ -9,4 +9,4 @@ textsummary.py
 requirements.txt
 officialapp.py
 advancedOpenaiModel.py
-my_cover/.env
+/my_cover/.env
