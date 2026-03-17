@@ -1,0 +1,11 @@
+/BESTERS SUMMARIZER TOOL
+/Trading Dashboard
+/App
+__pycache__
+schemas.py
+myapp.py
+empDB.db
+textsummary.py
+requirements.txt
+officialapp.py
+advancedOpenaiModel.py

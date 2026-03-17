@@ -1,0 +1,89 @@
+{
+  "server_name": "AccessBank_Core_Server",
+  "industry": "Banking",
+  "databases": [
+    {
+      "database_name": "CustomerDB",
+      "tables": [
+        {
+          "table_name": "Customers",
+          "columns": [
+            { "column_name": "customer_id", "data_type": "INT", "is_primary_key": true, "is_nullable": false },
+            { "column_name": "first_name", "data_type": "VARCHAR(100)", "is_primary_key": false, "is_nullable": false },
+            { "column_name": "last_name", "data_type": "VARCHAR(100)", "is_primary_key": false, "is_nullable": false },
+            { "column_name": "bvn", "data_type": "CHAR(11)", "is_primary_key": false, "is_nullable": false },
+            { "column_name": "phone_number", "data_type": "VARCHAR(15)", "is_primary_key": false, "is_nullable": false },
+            { "column_name": "email", "data_type": "VARCHAR(150)", "is_primary_key": false, "is_nullable": true },
+            { "column_name": "date_of_birth", "data_type": "DATE", "is_primary_key": false, "is_nullable": false }
+          ]
+        },
+        {
+          "table_name": "Accounts",
+          "columns": [
+            { "column_name": "account_id", "data_type": "INT", "is_primary_key": true, "is_nullable": false },
+            { "column_name": "customer_id", "data_type": "INT", "is_primary_key": false, "is_nullable": false },
+            { "column_name": "account_number", "data_type": "CHAR(10)", "is_primary_key": false, "is_nullable": false },
+            { "column_name": "account_type", "data_type": "VARCHAR(50)", "is_primary_key": false, "is_nullable": false },
+            { "column_name": "balance", "data_type": "DECIMAL(15,2)", "is_primary_key": false, "is_nullable": false },
+            { "column_name": "currency", "data_type": "CHAR(3)", "is_primary_key": false, "is_nullable": false },
+            { "column_name": "date_opened", "data_type": "DATE", "is_primary_key": false, "is_nullable": false }
+          ]
+        }
+      ]
+    },
+    {
+      "database_name": "TransactionDB",
+      "tables": [
+        {
+          "table_name": "Transactions",
+          "columns": [
+            { "column_name": "transaction_id", "data_type": "INT", "is_primary_key": true, "is_nullable": false },
+            { "column_name": "account_number", "data_type": "CHAR(10)", "is_primary_key": false, "is_nullable": false },
+            { "column_name": "transaction_type", "data_type": "VARCHAR(50)", "is_primary_key": false, "is_nullable": false },
+            { "column_name": "transaction_amount", "data_type": "DECIMAL(15,2)", "is_primary_key": false, "is_nullable": false },
+            { "column_name": "transaction_date", "data_type": "TIMESTAMP", "is_primary_key": false, "is_nullable": false },
+            { "column_name": "description", "data_type": "VARCHAR(255)", "is_primary_key": false, "is_nullable": true }
+          ]
+        },
+        {
+          "table_name": "Transfers",
+          "columns": [
+            { "column_name": "transfer_id", "data_type": "INT", "is_primary_key": true, "is_nullable": false },
+            { "column_name": "from_account", "data_type": "CHAR(10)", "is_primary_key": false, "is_nullable": false },
+            { "column_name": "to_account", "data_type": "CHAR(10)", "is_primary_key": false, "is_nullable": false },
+            { "column_name": "amount", "data_type": "DECIMAL(15,2)", "is_primary_key": false, "is_nullable": false },
+            { "column_name": "transfer_date", "data_type": "TIMESTAMP", "is_primary_key": false, "is_nullable": false },
+            { "column_name": "status", "data_type": "VARCHAR(20)", "is_primary_key": false, "is_nullable": false }
+          ]
+        }
+      ]
+    },
+    {
+      "database_name": "LoanDB",
+      "tables": [
+        {
+          "table_name": "Loans",
+          "columns": [
+            { "column_name": "loan_id", "data_type": "INT", "is_primary_key": true, "is_nullable": false },
+            { "column_name": "customer_id", "data_type": "INT", "is_primary_key": false, "is_nullable": false },
+            { "column_name": "loan_type", "data_type": "VARCHAR(50)", "is_primary_key": false, "is_nullable": false },
+            { "column_name": "principal_amount", "data_type": "DECIMAL(15,2)", "is_primary_key": false, "is_nullable": false },
+            { "column_name": "interest_rate", "data_type": "DECIMAL(5,2)", "is_primary_key": false, "is_nullable": false },
+            { "column_name": "start_date", "data_type": "DATE", "is_primary_key": false, "is_nullable": false },
+            { "column_name": "end_date", "data_type": "DATE", "is_primary_key": false, "is_nullable": false }
+          ]
+        },
+        {
+          "table_name": "LoanPayments",
+          "columns": [
+            { "column_name": "payment_id", "data_type": "INT", "is_primary_key": true, "is_nullable": false },
+            { "column_name": "loan_id", "data_type": "INT", "is_primary_key": false, "is_nullable": false },
+            { "column_name": "amount_paid", "data_type": "DECIMAL(15,2)", "is_primary_key": false, "is_nullable": false },
+            { "column_name": "payment_date", "data_type": "DATE", "is_primary_key": false, "is_nullable": false },
+            { "column_name": "payment_method", "data_type": "VARCHAR(50)", "is_primary_key": false, "is_nullable": false }
+          ]
+        }
+      ]
+    }
+  ]
+}
