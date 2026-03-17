@@ -84,7 +84,7 @@ collection = chroma_client.get_or_create_collection(
     metadata={"hnsw:space": "cosine"}
 )
 
-# Add table chunks (batch-safe)
+# Add table chunks 
 batch_size = 100
 for i in range(0, len(texts), batch_size):
     batch_end = min(i + batch_size, len(texts))
@@ -96,9 +96,6 @@ for i in range(0, len(texts), batch_size):
     )
 
 
-# ==========================================
-# QUERY EXPANSION (UNCHANGED)
-# ==========================================
 
 API_KEY = os.getenv("API_KEY")
 client = genai.Client(api_key=API_KEY)
@@ -206,9 +203,6 @@ context_str = "\n\n---\n\n".join([
 ])
 
 
-# ==========================================
-# GENERATION (UNCHANGED)
-# ==========================================
 
 def generate_answer(query: str, model="gemini-3-flash-preview"):
     
